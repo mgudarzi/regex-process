@@ -23,27 +23,30 @@ def read_file(filename):
 
 def find_times(string_list):
     """Return a list of valid times in the list of strings"""
-    out=[]
+    out = []
     pattern = r"\b(?:[1-9]|1[0-2]):[0-5][0-9] ?[aApP][mM]\b"
-    for element in string_list:        
+    for element in string_list:
         out.extend(re.findall(pattern, element))
     return out
 
+
 def find_urls(string_list):
-    out=[]
+    out = []
     """Return a list of valid URLs in the list of strings"""
     pattern = r"\b((?:http:\/\/|https:\/\/)www\.\S*(?:\.com|\.org)\S*)\b"
-    for element in string_list:        
+    for element in string_list:
         out.extend(re.findall(pattern, element))
     return out
+
 
 def find_dates(string_list):
     """Return a list of valid dates in the list of strings"""
-    out=[]
+    out = []
     pattern = r"\b(?:(?:0?[1-9]|1[0-2])[\/\-\.](?:[0-2][0-9]|3[01])[\/\-\.](?:\d{2}|\d{4})|(?:[0-2][0-9]|3[01])\.(?:0?[1-9]|1[0-2])\.(?:\d{2}|\d{4}))\b"
-    for element in string_list:        
+    for element in string_list:
         out.extend(re.findall(pattern, element))
     return out
+
 
 class TestAllMethods(unittest.TestCase):
 
